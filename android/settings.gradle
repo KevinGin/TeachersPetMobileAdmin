@@ -1,0 +1,3 @@
+rootProject.name = 'TeachersPetMobileAdmin'
+
+include ':app'
