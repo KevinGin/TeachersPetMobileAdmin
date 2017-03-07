@@ -38,7 +38,7 @@ export default class Signup extends Component {
       firstName: context.props.firstName,
       lastName: context.props.lastName
     }
-    var url = 'http://10.7.24.223:8080/auth/student/signup'
+    var url = 'http://10.7.24.223:8080/auth/signup'
 
     axios.post(url, userData)
     .then(function(response) {
