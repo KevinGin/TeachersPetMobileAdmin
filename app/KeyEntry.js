@@ -20,8 +20,8 @@ export default class KeyEntry extends Component {
     }
   }
 
-  handleTestPress() {
-    console.log(this.props)
+  handleKeyPress() {
+    Actions.PreUploadStudentTest(this.props.course);
   }
 
   render() {
@@ -29,7 +29,7 @@ export default class KeyEntry extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.courseButton}
-          onPress={this.handleTestPress.bind(this)}
+          onPress={this.handleKeyPress.bind(this)}
           accessibilityLabel={this.props.course.keyName}>
           <Text style={styles.courseText}>{this.props.course.keyName}</Text>
         </TouchableOpacity>

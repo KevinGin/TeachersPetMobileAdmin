@@ -12,6 +12,7 @@ import SuccessfulPost from './SuccessfulPost';
 import FailedToPost from './FailedToPost';
 import Courses from './Courses';
 import Keys from './Keys';
+import PreUploadStudentTest from './PreUploadStudentTest';
 
 
 
@@ -21,7 +22,7 @@ export default class App extends Component {
     return (
       <Router>
         <Scene key="root">
-          <Scene key="Landing" component={Landing} title="Teacher's Pet: Student" hideNavBar initial={true}/>
+          <Scene key="Landing" component={Landing} title="Teacher's Pet: Student" hideNavBar initial={true} />
           <Scene key="CameraView" component={CameraView} title="Camera" hideNavBar />
           <Scene key="PreSignup" component={PreSignup} title="PreSignup" />
           <Scene key="Signup" component={Signup} title="Signup" />
@@ -32,8 +33,11 @@ export default class App extends Component {
           <Scene key="Preview" component={Preview} title="Preview" hideNavBar/>
           <Scene key="Courses" component={Courses} title="Courses" hideNavBar  />
           <Scene key="Keys" component={Keys} title="Keys" hideNavBar />
+          <Scene key="PreUploadStudentTest" component={PreUploadStudentTest} title="PreUploadStudentTest" hideNavBar />
         </Scene>
       </Router>
     )
   }
 }
+
+
