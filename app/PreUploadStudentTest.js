@@ -21,6 +21,8 @@ export default class PreUploadStudentTest extends Component {
   handleButtonPress() {
     var keyId = this.props.keyId
     var data = {keyId: keyId}
+    console.log('handleButtonPress ================>')
+    console.log(data);
     Actions.CameraView(data)
   }
 

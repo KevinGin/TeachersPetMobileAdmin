@@ -65,13 +65,15 @@ export default class CameraView extends Component {
       console.log('onload called -------------------------')
 
       var response = data.target._response;
-      var username = this.props.user.username;
-      var answerKeyID = this.props.answerKeyID
+      // DEV NOTE: removing username...
+      // var username = this.props.user.username;
+
+      var keyId = this.props.keyId
 
       Actions.Preview({
         cloudinaryResponse:response,
-        username: username,
-        answerKeyID: answerKeyID
+        // username: username,
+        keyId: keyId
       })
 
       // set state in case user navigates back to CameraView

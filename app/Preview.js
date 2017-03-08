@@ -29,8 +29,6 @@ export default class Preview extends Component {
   }
 
 
-
-
   discardImage() {
     Actions.pop();
   }
@@ -60,24 +58,29 @@ export default class Preview extends Component {
       let hardCodedURL = 'http://res.cloudinary.com/dn4vqx2gu/image/upload/v1488672122/rzcckliek05taq6a2pul.jpg'
 
       // DEV: When server changes are made, should also pass up USER ID, not USERNAME. Hard Coded UserID for now.
-      console.log('about to upload data ------------------------------------------------------------------------------------------')
-      var username = this.props.username;
-      var answerKeyID = this.props.answerKeyID;
+      console.log('about to upload data ------------------------------------------------------------------------------------')
+      // var username = this.props.username;
+      var keyId = this.props.keyId;
 
+      console.log('answerKeyID ==> ')
+      console.log(keyId)
 
       var data = {
         url: hardCodedURL,   // hard-coded for DEV
         // url: cloudURL,
-        AnswerKeyID: answerKeyID,
-        StudentID: 1,
+        AnswerKeyId: keyId,
+        StudentId: 1,  // hard-coded for DEV, until server doesn't require.
  
         token: token
       }
 
+      console.log('data =====>');
+      console.log(data);
+
       var config = {
         method: 'post',
         data: data,
-        url: 'http://10.6.20.164:8080/api/addTest'
+        url: 'http://10.7.24.223:8080/api/addTest'
       }
 
       axios(config)
@@ -179,7 +182,7 @@ const styles = StyleSheet.create({
   },
   submitText: {
     flex: 1,
-    color: 'lightgray',
+    color: 'white',
     backgroundColor: '#85AF4B',
     textAlign: 'center',
     fontWeight: 'bold',

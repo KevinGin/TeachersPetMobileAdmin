@@ -21,7 +21,8 @@ export default class KeyEntry extends Component {
   }
 
   handleKeyPress() {
-    Actions.PreUploadStudentTest(this.props.course);
+    var course = this.props.course;
+    Actions.PreUploadStudentTest(course);
   }
 
   render() {
