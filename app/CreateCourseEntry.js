@@ -20,8 +20,9 @@ export default class CreateCourseEntry extends Component {
     }
   }
 
-  sample() {
-    console.log(this.props)
+  handlePress() {
+    var user = this.props.user;
+    Actions.CreateNewCourse({user:user})
   }
 
   render() {
@@ -29,7 +30,8 @@ export default class CreateCourseEntry extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.createCourseButton}
-          accessibilityLabel="Course Name">
+          accessibilityLabel="Create New Course"
+          onPress={this.handlePress.bind(this)}>
           <Text style={styles.courseText}>Create New Course</Text>
         </TouchableOpacity>
       </View>

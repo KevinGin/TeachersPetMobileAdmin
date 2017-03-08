@@ -66,7 +66,7 @@ export default class Courses extends Component {
     return (
       <ScrollView style={styles.outerContainer}>
         {entries}
-      <CreateCourseEntry />
+      <CreateCourseEntry user={this.props.user}/>
       </ScrollView>
     )
   }

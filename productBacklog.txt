@@ -3,6 +3,21 @@
 - Create New Course
 - Create New Test
 
+- Show keyID (in base 4) to teacher somehow
 
 - Percentages Displayed should always be display to two decimal places
 - RegEx on all user input
+
+- Logout button (only on certain Scenes?)
+
+- Options after successful upload:
+	Grade Another, Different Class/AnswerKey, Logout/Done.
+	
+
+- Remove Hard-Coded Data after Server changes (keyID on POST requests, show real student name when returned from POST request).
+
+
+
+
+SERVER ISSUE?
+- Doesn't immediately show New Course after it is created. Is Redis not updating until user logs out and back in?

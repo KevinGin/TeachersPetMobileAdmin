@@ -13,6 +13,7 @@ import FailedToPost from './FailedToPost';
 import Courses from './Courses';
 import Keys from './Keys';
 import PreUploadStudentTest from './PreUploadStudentTest';
+import CreateNewCourse from './CreateNewCourse';
 
 
 
@@ -34,6 +35,7 @@ export default class App extends Component {
           <Scene key="Courses" component={Courses} title="Courses" hideNavBar  />
           <Scene key="Keys" component={Keys} title="Keys" hideNavBar />
           <Scene key="PreUploadStudentTest" component={PreUploadStudentTest} title="PreUploadStudentTest" hideNavBar />
+          <Scene key="CreateNewCourse" component={CreateNewCourse} title="CreateNewCourse" hideNavBar />
         </Scene>
       </Router>
     )
