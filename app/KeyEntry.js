@@ -13,15 +13,15 @@ import { Actions } from 'react-native-router-flux';
 const axios = require('axios')
 const { width, height } = Dimensions.get('window')
 
-export default class CourseEntry extends Component {
+export default class KeyEntry extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+    }
   }
 
-  handleCoursePress() {
+  handleTestPress() {
     console.log(this.props)
-    Actions.Keys(this.props.course)
   }
 
   render() {
@@ -29,9 +29,9 @@ export default class CourseEntry extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.courseButton}
-          onPress={this.handleCoursePress.bind(this)}
-          accessibilityLabel="Course Name">
-          <Text style={styles.courseText}>{this.props.course.ClassName}</Text>
+          onPress={this.handleTestPress.bind(this)}
+          accessibilityLabel={this.props.course.keyName}>
+          <Text style={styles.courseText}>{this.props.course.keyName}</Text>
         </TouchableOpacity>
       </View>
     )

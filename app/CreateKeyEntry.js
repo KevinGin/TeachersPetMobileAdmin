@@ -13,30 +13,35 @@ import { Actions } from 'react-native-router-flux';
 const axios = require('axios')
 const { width, height } = Dimensions.get('window')
 
-export default class CourseEntry extends Component {
+export default class CreateKeyEntry extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+    }
   }
 
-  handleCoursePress() {
+  sample() {
     console.log(this.props)
-    Actions.Keys(this.props.course)
   }
 
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity
-          style={styles.courseButton}
-          onPress={this.handleCoursePress.bind(this)}
-          accessibilityLabel="Course Name">
-          <Text style={styles.courseText}>{this.props.course.ClassName}</Text>
+          style={styles.createCourseButton}
+          accessibilityLabel="Create New Test">
+          <Text style={styles.courseText}>Create New Test</Text>
         </TouchableOpacity>
       </View>
     )
   }
 }
+
+// Color Scheme:
+// '#85AF4B'
+// '#ADC986'
+// '#D3E2BD'
+// '#C9D492'
 
 const styles = StyleSheet.create({
   container: {
@@ -45,10 +50,10 @@ const styles = StyleSheet.create({
     height: height / 4,
     backgroundColor: '#ADC986',
   },
-  courseButton: {
+  createCourseButton: {
     paddingTop: height / 20,
     flex: 1,
-    backgroundColor: '#85AF4B',
+    backgroundColor: '#D3E2BD',
     borderRadius: 4,
     width: width * .8,
     left: width / 10
@@ -58,6 +63,6 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'white'
+    color: 'yellow'
   }
 });
