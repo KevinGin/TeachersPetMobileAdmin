@@ -30,7 +30,7 @@ export default class PreUploadStudentTest extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.space} />
-        <Text style={styles.textMajor}>Upload Student Tests</Text>
+        <Text style={styles.textMajor}>Giddy up!</Text>
         <Text style={styles.textMinor}>You'll be outa here in no time.</Text>
         <Image source={require('./assets/pencil-horizontal.png')}
            style={styles.pencil}/>
