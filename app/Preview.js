@@ -77,7 +77,7 @@ export default class Preview extends Component {
       var config = {
         method: 'post',
         data: data,
-        url: 'http://10.7.24.223:8080/api/addTest'
+        url: 'http://10.6.20.164:8080/api/addTest'
       }
 
       axios(config)
