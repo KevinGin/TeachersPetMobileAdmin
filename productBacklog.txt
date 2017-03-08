@@ -1,1 +1,8 @@
-- The courseID should be passed into Failure Screen, so it can pass back on to Camera.
+
+
+- Create New Course
+- Create New Test
+
+
+- Percentages Displayed should always be display to two decimal places
+- RegEx on all user input

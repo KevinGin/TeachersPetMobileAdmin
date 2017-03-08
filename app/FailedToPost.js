@@ -19,6 +19,14 @@ export default class FailedToPost extends Component {
     };
   }
 
+  handlePress() {
+    console.log('handlPress called ===========>')
+    console.log(this.props)
+    var keyId = this.props.AnswerKeyId;
+    var data = {keyId:keyId}
+    console.log(data)
+    Actions.CameraView(data);
+  }
 
   render() {
     return (
@@ -33,7 +41,7 @@ export default class FailedToPost extends Component {
                />
         <View style={styles.space} />
         <Text style={styles.buttonText}
-              onPress={Actions.CameraView}>Try Again</Text>
+              onPress={this.handlePress.bind(this)}>Try Again</Text>
         <View style={styles.space} />
       </View>
     )

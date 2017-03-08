@@ -121,7 +121,7 @@ export default class CameraView extends Component {
           //Most Android will sive the same, but might need to edit on Cloudinary for rogue Android cameras
           captureQuality={"720p"}>
           <View style={styles.topBar}>
-            <Text> {this.props.username} </Text>
+            <Text></Text>
           </View>
           
           <View style={styles.outline}></View>

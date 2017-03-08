@@ -70,7 +70,6 @@ export default class Preview extends Component {
         // url: cloudURL,
         AnswerKeyId: keyId,
         StudentId: 1,  // hard-coded for DEV, until server doesn't require.
- 
         token: token
       }
 
