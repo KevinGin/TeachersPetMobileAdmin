@@ -24,12 +24,12 @@ export default class App extends Component {
           <Scene key="CameraView" component={CameraView} title="Camera" hideNavBar />
           <Scene key="PreSignup" component={PreSignup} title="PreSignup" />
           <Scene key="Signup" component={Signup} title="Signup" />
-          <Scene key="Login" component={Login} title="Login" />
+          <Scene key="Login" component={Login} title="Login"  />
           <Scene key="PreCamera" component={PreCamera} title="PreCamera" />
           <Scene key="SuccessfulPost" component={SuccessfulPost} title="SuccessfulPost" hideNavBar/>
           <Scene key="FailedToPost" component={FailedToPost} title="FailedToPost" hideNavBar/>
           <Scene key="Preview" component={Preview} title="Preview" hideNavBar/>
-          <Scene key="Courses" component={Courses} title="Courses" hideNavBar initial={true}/>
+          <Scene key="Courses" component={Courses} title="Courses" hideNavBar initial={true} />
         </Scene>
       </Router>
     )

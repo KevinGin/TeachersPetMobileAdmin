@@ -10,6 +10,8 @@ import {
   AsyncStorage
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import CourseEntry from './CourseEntry';
+import CreateCourseEntry from './CreateCourseEntry';
 const axios = require('axios')
 const { width, height } = Dimensions.get('window')
 
@@ -17,16 +19,13 @@ export default class Courses extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      courses: {}
+      courses: [1,2,3,4,5,6]
     }
   }
-
-
 
   componentDidMount() {
     this.getCourses();
   }
-
 
   getCourses() {
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
@@ -58,48 +57,46 @@ export default class Courses extends Component {
   }
 
   render() {
+    var courses = this.state.courses;
+
+    var entries = this.state.courses.map(course => 
+      <CourseEntry course={course}/>
+    )
+
     return (
-      <ScrollView styles={styles.container}>
-        <TouchableOpacity
-          style={styles.courseButton}
-          onPress={this.showState.bind(this)}
-          accessibilityLabel="Course Name">
-          <Text style={styles.courseText}>Bio 101</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.courseButton}
-          onPress={this.showState.bind(this)}
-          accessibilityLabel="Course Name">
-          <Text style={styles.courseText}>Phil 08</Text>
-        </TouchableOpacity>
-        <View style={styles.space}/>
+      <ScrollView style={styles.outerContainer}>
+        {entries}
+      <CreateCourseEntry />
       </ScrollView>
     )
   }
 }
 
 
+
+
+
+
+
 // Color Scheme:
 // '#85AF4B'
 // '#ADC986'
 // '#D3E2BD'
+// '#C9D492'
 
 const styles = StyleSheet.create({
-  container: {
+  outerContainer: {
     flex: 1,
     backgroundColor: '#ADC986',
   },
-
-  thinLine: {
-    height: 1,
-  },
-  mediumLine: {
-    height: 5
-  },
-  space: {
-    flex: 3
+  container: {
+    flex: 1,
+    paddingTop: height / 20,
+    height: height / 4,
+    backgroundColor: '#ADC986',
   },
   courseButton: {
+    paddingTop: height / 20,
     flex: 1,
     backgroundColor: '#85AF4B',
     borderRadius: 4,
