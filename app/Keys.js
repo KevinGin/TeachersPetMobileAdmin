@@ -23,19 +23,19 @@ export default class Keys extends Component {
         classId: 2,
         className: 'Badminton 101',
         answerKeys: [{
-          keyId: 3,
+          keyId: 1,
           keyName: 'Midterm',
           answers: 'answerstring'
         },{
-          keyId: 4,
+          keyId: 2,
           keyName: 'Final Exam',
           answers: 'answerstring2'
         },{
-          keyId: 7,
+          keyId: 1,
           keyName: 'Precourse',
           answers: 'answerstring3'
         },{
-          keyId: 12,
+          keyId: 2,
           keyName: 'Quiz 1',
           answers: 'answerstring4'
         }]
