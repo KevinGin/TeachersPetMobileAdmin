@@ -23,8 +23,8 @@ export default class Preview extends Component {
     super(props);
     this.state = {    // note: answerKeyID, studentID passed in as Props
       spinner: false,
-      majorMessage: 'hello',
-      minorMessage: 'world'
+      majorMessage: '',
+      minorMessage: ''
     };
   }
 
@@ -45,7 +45,7 @@ export default class Preview extends Component {
     this.setState({
       spinner: true,
       majorMessage: 'Grading Test',
-      minorMessage: 'We bet you aced it...'
+      minorMessage: 'Kick your feet up, relax...'
     })
 
 
