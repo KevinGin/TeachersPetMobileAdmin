@@ -2,23 +2,27 @@ BUGS:
 -When a teacher uploads a key, then navigates to home page, they aren't able to go through the user flow to upload another key. This has to do with the way we are passing in the "User" prop when we navigate back to Courses page.
 
 
+
+IMMEDIATE FEATURES:
+
+- Remove Hard-Coded Data (keyID on POST requests, show real student name when returned from POST request).
+
+- Real USERNAME after uploading student Key: THIS WOULD REQUIRE SERVER CHANGES
+
+
 FEATURES:
 
-- Show keyID to teacher somehow
-
 - Percentages Displayed should always be display to two decimal places
+
 - RegEx on all user input
 
 - Logout button (only on certain Scenes?)
-
-- Options after successful upload:
-	Grade Another, Different Class/AnswerKey, Logout/Done.
 	
 
-- Remove Hard-Coded Data after Server changes (keyID on POST requests, show real student name when returned from POST request).
+
 
 
 
 
 SERVER ISSUE?
-- Doesn't immediately show New Course after it is created. Is Redis not updating until user logs out and back in?
+- Doesn't immediately show New Course after it is created. Is Redis not updating until user logs out and back in? My guess is that server sends back 200 before updating REDIS, so we aren't giving enough time. Could do workaround in client, or handle in client or server.
