@@ -32,12 +32,21 @@ export default class KeyEntry extends Component {
           style={styles.courseButton}
           onPress={this.handleKeyPress.bind(this)}
           accessibilityLabel={this.props.course.keyName}>
-          <Text style={styles.courseText}>{this.props.course.keyName}</Text>
+          <Text style={styles.courseTextTop}>{this.props.course.keyName}</Text>
+          <Text style={styles.courseTextBottom}>Key ID: {this.props.course.keyId}</Text>
         </TouchableOpacity>
       </View>
     )
   }
 }
+
+
+// Color Scheme:
+// '#85AF4B'
+// '#ADC986'
+// '#D3E2BD'
+// '#C9D492'
+
 
 const styles = StyleSheet.create({
   container: {
@@ -54,11 +63,17 @@ const styles = StyleSheet.create({
     width: width * .8,
     left: width / 10
   },
-  courseText: {
-    fontSize: 20,
-    paddingTop: 14,
+  courseTextTop: {
+    fontSize: 24,
+    paddingTop: height / 100,
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'white'
+  },
+  courseTextBottom: {
+    fontSize: 18,
+    paddingTop: 0,
+    textAlign: 'center',
+    color: '#C9D492'
   }
 });

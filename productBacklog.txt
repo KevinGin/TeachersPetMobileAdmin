@@ -1,5 +1,8 @@
+BUGS:
+-When a teacher uploads a key, then navigates to home page, they aren't able to go through the user flow to upload another key. This has to do with the way we are passing in the "User" prop when we navigate back to Courses page.
 
--New Key Success page
+
+FEATURES:
 
 - Show keyID to teacher somehow
 

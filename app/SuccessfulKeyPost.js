@@ -57,7 +57,7 @@ export default class SuccessfulKeyPost extends Component {
       <View style={styles.container}>
         <View style={styles.thinSpace} />
         <Text style={styles.textMajor}>{className}</Text>
-        <Text style={styles.textMinor}>{keyName}</Text>
+        <Text style={styles.textMinor}>{keyName} (id: {keyId})</Text>
         <Image source={require('./assets/pencil-horizontal.png')}
                style={styles.pencil}
                />
