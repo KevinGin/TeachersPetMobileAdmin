@@ -43,11 +43,15 @@ export default class Keys extends Component {
     }
   }
 
-  handleCoursePress() {
-    console.log(this.props)
+  componentDidMount() {
+    for (key in this.props) {
+      console.log(key);
+    }
   }
 
   render() {
+    var user = this.props.user;
+    var course = this.props.course;
     var keys = this.state.courseData.answerKeys;
 
     var keyEntries = keys.map(key => 
@@ -57,7 +61,7 @@ export default class Keys extends Component {
     return (
       <ScrollView style={styles.outerContainer}>
         {keyEntries}
-      <CreateKeyEntry />
+      <CreateKeyEntry user={user} course={course} />
       </ScrollView>
     )
   }

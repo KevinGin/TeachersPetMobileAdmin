@@ -25,27 +25,28 @@ export default class Courses extends Component {
 
   componentDidMount() {
     this.getCourses();
+    console.log('Courses Mounted, props ==>')
+    for (key in this.props) {
+      console.log(key);
+    } 
   }
 
   getCourses() {
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
       var config = {
         method: 'get',
-        url: 'http://10.7.24.223:8080/api/getClasses?token=' + token
+        url: 'http://10.6.20.164:8080/api/getClasses?token=' + token
       }
       axios(config)
         .then((data) => {
-          console.log('about to print data ---------------------')
           // console.log(data.request._response);
           var courses = JSON.parse(data.request._response)
-          courses.forEach((course) => {
-            console.log(course);
-          })
           this.setState({
             courses: courses
           })
         })
         .catch((err) => {
+          // ERROR HANDLING
           console.log('ERROR - catch called in Courses.js')
         })
     })
@@ -57,16 +58,17 @@ export default class Courses extends Component {
   }
 
   render() {
+    var user = this.props.user
     var courses = this.state.courses;
 
     var entries = this.state.courses.map(course => 
-      <CourseEntry course={course}/>
+      <CourseEntry course={course} user={user}/>
     )
 
     return (
       <ScrollView style={styles.outerContainer}>
         {entries}
-      <CreateCourseEntry user={this.props.user}/>
+      <CreateCourseEntry user={user}/>
       </ScrollView>
     )
   }

@@ -20,8 +20,14 @@ export default class CreateKeyEntry extends Component {
     }
   }
 
-  sample() {
-    console.log(this.props)
+  handlePress() {
+    var user = this.props.user;
+    var course = this.props.course;
+    var data = {user:user, course:course};
+    
+    console.log('handlePress')
+    console.log(data)
+    Actions.CreateNewKey(data);
   }
 
   render() {
@@ -29,7 +35,8 @@ export default class CreateKeyEntry extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.createCourseButton}
-          accessibilityLabel="Create New Test">
+          accessibilityLabel="Create Neww Test"
+          onPress={this.handlePress.bind(this)}>
           <Text style={styles.courseText}>Create New Test</Text>
         </TouchableOpacity>
       </View>

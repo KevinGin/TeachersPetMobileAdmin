@@ -1,9 +1,7 @@
 
+-New Key Success page
 
-- Create New Course
-- Create New Test
-
-- Show keyID (in base 4) to teacher somehow
+- Show keyID to teacher somehow
 
 - Percentages Displayed should always be display to two decimal places
 - RegEx on all user input

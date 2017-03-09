@@ -37,18 +37,79 @@ export default class Preview extends Component {
     var context = this;
     var cloudinaryResponse = JSON.parse(context.props.cloudinaryResponse);
     var cloudURL = cloudinaryResponse.url;
-    this.postToServer(cloudURL);
+
+    if (this.props.isKey) {
+      console.log('KEY ========================')
+      this.postAnswerKey(cloudURL);
+    } else {
+      this.postStudentTest(cloudURL);
+    }
+  }
+
+  postAnswerKey(cloudURL) {
+    this.setState({
+      spinner: true,
+      majorMessage: 'Scanning Key',
+      minorMessage: 'Hey Teacher! You\'re the best...'
+    })
+    var context = this;
+    console.log('posting to server ------------------------')
+    // Fetch Web Token Asyc
+    AsyncStorage.getItem('@teachersPetToken', (err, token) => {
+
+      // let hardCodedURL = 'http://res.cloudinary.com/dn4vqx2gu/image/upload/v1487892182/p6ybu5bjev1nnfkpebcc.jpg'
+      let hardCodedURL = 'http://res.cloudinary.com/dn4vqx2gu/image/upload/v1488672122/rzcckliek05taq6a2pul.jpg'
+
+      // DEV: When server changes are made, should also pass up USER ID, not USERNAME. Hard Coded UserID for now.
+      
+      var TeacherId = context.props.user.id;
+      var ClassId = context.props.course.ClassId;
+  
+      var data = {
+        url: hardCodedURL,   // hard-coded for DEV
+        TeacherId: TeacherId,
+        ClassId: ClassId,
+        token: token
+      }
+
+      var config = {
+        method: 'post',
+        data: data,
+        url: 'http://10.6.20.164:8080/api/addAnswerKey'
+      }
+
+      axios(config)
+        .then((response) => {
+          console.log('posted successfully --------------------⁄')
+          var data = response.data;
+          this.setState({
+            spinner: false,
+          })
+          // Actions.SuccessfulPost(data);
+
+        })
+        .catch((err) => {
+          console.log('catch called -------------------------')
+          this.setState({
+            spinner: false,
+          })
+
+          // Actions.FailedToPost(data);
+        })
+    });
   }
 
 
-  postToServer(cloudURL) {
+
+
+
+
+  postStudentTest(cloudURL) {
     this.setState({
       spinner: true,
       majorMessage: 'Grading Test',
       minorMessage: 'Kick your feet up, relax...'
     })
-
-
     var context = this;
     console.log('posting to server ------------------------')
     // Fetch Web Token Asyc
@@ -79,7 +140,7 @@ export default class Preview extends Component {
       var config = {
         method: 'post',
         data: data,
-        url: 'http://10.7.24.223:8080/api/addTest'
+        url: 'http://10.6.20.164:8080/api/addTest'
       }
 
       axios(config)
@@ -123,7 +184,7 @@ export default class Preview extends Component {
             <TouchableOpacity
               style={styles.button}
               onPress={this.useImage.bind(this)}>
-              <Text style={styles.submitText}>Submit Test</Text>
+              <Text style={styles.submitText}>{this.props.isKey ? 'Upload Key' : 'Submit Test'}</Text>
             </TouchableOpacity>
             <View style={styles.space}></View>
           </View>

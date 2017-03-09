@@ -20,8 +20,10 @@ export default class CourseEntry extends Component {
   }
 
   handleCoursePress() {
-    console.log(this.props)
-    Actions.Keys(this.props.course)
+    var user = this.props.user;  // Don't need userId when server reads off token
+    var course = this.props.course
+    var data = {user:user, course:course};
+    Actions.Keys(data)
   }
 
   render() {

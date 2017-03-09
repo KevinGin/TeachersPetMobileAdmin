@@ -64,17 +64,25 @@ export default class CameraView extends Component {
     xhr.onload = (data) => {
       console.log('onload called -------------------------')
 
-      var response = data.target._response;
-      // DEV NOTE: removing username...
-      // var username = this.props.user.username;
+      
+      // Some props may be undefinied, since multiple routes to CameraView
+      var keyId = this.props.keyId;
+      var user = this.props.user;
+      var course = this.props.course;
+      var keyName = this.props.keyName;
+      var isKey = this.props.isKey;
+      var cloudinaryResponse = data.target._response;
 
-      var keyId = this.props.keyId
+      var data = {
+        keyId:keyId,
+        user:user,
+        course:course,
+        keyName:keyName,
+        isKey:isKey,
+        cloudinaryResponse:cloudinaryResponse
+      }
 
-      Actions.Preview({
-        cloudinaryResponse:response,
-        // username: username,
-        keyId: keyId
-      })
+      Actions.Preview(data)
 
       // set state in case user navigates back to CameraView
       context.setState({
