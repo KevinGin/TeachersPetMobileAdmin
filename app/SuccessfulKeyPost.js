@@ -19,7 +19,11 @@ export default class SuccessfulKeyPost extends Component {
   }
 
 
-  // KG: Sould be getting props now into handlebuttonpress
+  handleHomePress() {
+    var user = this.props.user;
+    console.log(user);
+    Actions.Courses(user);
+  }
 
   handleButtonPress() {
     // console.log('handleButtonPress called ---------------')
@@ -67,8 +71,8 @@ export default class SuccessfulKeyPost extends Component {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.homeButton}
-            onPress={this.handleButtonPress.bind(this)}
-            accessibilityLabel="Grade Another">
+            onPress={this.handleHomePress.bind(this)}
+            accessibilityLabel="Navigate to Home">
             <Text style={styles.homeButtonText}>Home</Text>
           </TouchableOpacity>
           <View style={styles.buttonSpace} />
