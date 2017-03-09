@@ -63,16 +63,16 @@ export default class Preview extends Component {
 
       // let hardCodedURL = 'http://res.cloudinary.com/dn4vqx2gu/image/upload/v1487892182/p6ybu5bjev1nnfkpebcc.jpg'
       let hardCodedURL = 'http://res.cloudinary.com/dn4vqx2gu/image/upload/v1488672122/rzcckliek05taq6a2pul.jpg'
-
-      // DEV: When server changes are made, should also pass up USER ID, not USERNAME. Hard Coded UserID for now.
       
       var TeacherId = context.props.user.id;
       var ClassId = context.props.course.ClassId;
+      var keyName = context.props.keyName;
   
       var data = {
         url: hardCodedURL,   // hard-coded for DEV
         TeacherId: TeacherId,
         ClassId: ClassId,
+        keyName: keyName,
         token: token
       }
 

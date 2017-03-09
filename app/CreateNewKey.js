@@ -35,33 +35,6 @@ export default class CreateNewKey extends Component {
     }
 
     Actions.CameraView(data);
-    
-
-
-    // AsyncStorage.getItem('@teachersPetToken', (err, token) => {
-    //   var data = {
-    //     TeacherId: context.props.user.id,
-    //     ClassName: context.state.courseName,
-    //     token: token
-    //   }
-
-    //  var config = {
-    //     method: 'post',
-    //     data: data,
-    //     url: 'http://10.6.20.164:8080/api/addAnswerKey'
-    //   }
-
-    //   axios(config)
-    //     .then((response) => {
-    //       console.log('posted successfully --------------------⁄')
-    //       Actions.Courses({user:context.props.user})  //KG FIX
-
-    //     })
-    //     .catch((err) => {
-    //       console.log('catch called -------------------------')
-    //       // ERROR HANDLING
-    //     }) 
-    // })
   }
 
 

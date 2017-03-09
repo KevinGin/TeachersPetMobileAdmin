@@ -3,11 +3,11 @@ BUGS:
 
 
 
+
 IMMEDIATE FEATURES:
 
-- Remove Hard-Coded Data (keyID on POST requests, show real student name when returned from POST request).
-
-- Real USERNAME after uploading student Key: THIS WOULD REQUIRE SERVER CHANGES
+- When uploading student test, remove hard-coded StudentID, since server should read this off from scanned image. NOTE: THIS REQUIRES SERVER CHANGES
+- Real USERNAME after uploading student Test: THIS REQUIRES SERVER CHANGES
 
 
 FEATURES:
