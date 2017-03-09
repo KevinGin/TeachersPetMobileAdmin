@@ -62,7 +62,7 @@ export default class Keys extends Component {
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
       var config = {
         method: 'get',
-        url: 'http://10.7.24.223:8080/api/getKeysForClass?token=' + token +'&class_Id=' + classId
+        url: 'http://computer-vision.herokuapp.com/api/getKeysForClass?token=' + token +'&class_Id=' + classId
       }
       axios(config)
         .then((data) => {

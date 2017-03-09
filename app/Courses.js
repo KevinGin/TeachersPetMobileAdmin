@@ -36,7 +36,7 @@ export default class Courses extends Component {
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
       var config = {
         method: 'get',
-        url: 'http://10.7.24.223:8080/api/getClasses?token=' + token
+        url: 'http://computer-vision.herokuapp.com/api/getClasses?token=' + token
       }
       axios(config)
         .then((data) => {

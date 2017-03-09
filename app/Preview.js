@@ -81,7 +81,7 @@ export default class Preview extends Component {
       var config = {
         method: 'post',
         data: data,
-        url: 'http://10.7.24.223:8080/api/addAnswerKey'
+        url: 'http://computer-vision.herokuapp.com/api/addAnswerKey'
       }
 
       console.log(config)
@@ -152,7 +152,7 @@ export default class Preview extends Component {
       var config = {
         method: 'post',
         data: data,
-        url: 'http://10.7.24.223:8080/api/addTest'
+        url: 'http://computer-vision.herokuapp.com/api/addTest'
       }
 
       axios(config)

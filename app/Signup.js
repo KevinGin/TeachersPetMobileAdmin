@@ -38,7 +38,7 @@ export default class Signup extends Component {
       // firstName: context.props.firstName,
       // lastName: context.props.lastName
     }
-    var url = 'http:10.7.24.223:8080/auth/signup'
+    var url = 'http://computer-vision.herokuapp.com/auth/signup'
 
     console.log('about to post-----------------')
     console.log(userData);
