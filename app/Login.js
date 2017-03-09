@@ -37,7 +37,7 @@ export default class Login extends Component {
     }
 
     console.log(userData)
-    var url = 'http://10.7.24.223:8080/auth/login'
+    var url = 'http:10.7.24.223:8080/auth/login'
 
     axios.post(url, userData)
     .then(function (response) {

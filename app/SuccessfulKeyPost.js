@@ -9,30 +9,36 @@ import {
  } from 'react-native';
  const { width, height } = Dimensions.get('window')
  import { Actions } from 'react-native-router-flux';
+ import AnswerDisplay28 from './AnswerDisplay28';
 
 export default class SuccessfulKeyPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bonus: 0
     };
   }
 
 
-  // KG: SHould be getting props now into handlebuttonpress
+  // KG: Sould be getting props now into handlebuttonpress
 
   handleButtonPress() {
     // console.log('handleButtonPress called ---------------')
     var props = this.props;
-    var keyId = props.keyId;
-    var user = props.user;
-    var course = props.course;
-    var keyName = props.keyName;
+    var user = props.user; 
+    var course = props.course;  // yes -- course.className
+    var keyName = props.keyName; // yes
     var isKey = props.isKey;
+    var key = props.keyData;
 
-    for (key in props) {
-      console.log(key);
-    }
+    // for (key in props) {
+    //   console.log(key);
+    // }
+
+    var answers = JSON.parse(key.answers);
+    console.log(answers[4])
+
+    // console.log(isKey)
+
     // console.log(props.name)
 
     // var keyId = this.props.answerKeyId;
@@ -40,24 +46,40 @@ export default class SuccessfulKeyPost extends Component {
   }
 
   render() {
+    var props = this.props;
+    var className = props.course.ClassName;
+    var keyName = props.keyName;
+    var key = props.keyData;
+    var keyId = key.id;
+    var answers = JSON.parse(key.answers);
+
+
     return (
       <View style={styles.container}>
-        <View style={styles.space} />
-        <Text style={styles.textMajor}>
-              Key Uploaded!</Text>
-        <Text style={styles.textMinor}>Rachel Lee scored: </Text>
+        <View style={styles.thinSpace} />
+        <Text style={styles.textMajor}>{className}</Text>
+        <Text style={styles.textMinor}>{keyName}</Text>
         <Image source={require('./assets/pencil-horizontal.png')}
                style={styles.pencil}
                />
+        <AnswerDisplay28 answers={answers}/>  
+        <View style={styles.thinSpace} />      
         <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.homeButton}
+            onPress={this.handleButtonPress.bind(this)}
+            accessibilityLabel="Grade Another">
+            <Text style={styles.homeButtonText}>Home</Text>
+          </TouchableOpacity>
+          <View style={styles.buttonSpace} />
           <TouchableOpacity
             style={styles.button}
             onPress={this.handleButtonPress.bind(this)}
             accessibilityLabel="Grade Another">
-            <Text style={styles.buttonText}>Grade Another</Text>
+            <Text style={styles.buttonText}>Upload Student Tests</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.space} />
+        <View style={styles.thinSpace} />
       </View>
     )
   }
@@ -76,8 +98,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#D3E2BD',
     justifyContent: 'center',
   },
+  keyContainer: {
+    flex: 4,
+  },
   space: {
     flex: 1,
+  },
+  thinSpace: {
+    flex: .25,
   },
   indicator: {
     flex: 2,
@@ -88,13 +116,19 @@ const styles = StyleSheet.create({
   textMajor: {
     color: '#85AF4B',
     fontWeight: 'bold',
-    fontSize: 45,
+    fontSize: 40,
     textAlign: 'center'
   },
   textMinor: {
     color: '#85AF4B',
     fontWeight: 'bold',
     fontSize: 25,
+    textAlign: 'center'
+  },
+  textMinorAlternate: {
+    color: '#85AF4B',
+    fontWeight: 'bold',
+    fontSize: 20,
     textAlign: 'center'
   },
   textPercentage: {
@@ -104,24 +138,42 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonContainer: {
-    flex: .8,
-    paddingTop: height / 20,
+    flex: 2,
+    flexDirection: 'row',
+    // paddingTop: height / 20,
+    width: width * .95,
+    left: width * .05,
     height: height / 6,
     backgroundColor: '#D3E2BD',
   },
+  buttonSpace: {
+    width: width * .1,
+  },
   button: {
-    paddingTop: height / 25,
-    flex: 1,
+    // paddingTop: height / 25,
+    width: width * .4,
     backgroundColor: '#85AF4B',
     borderRadius: 4,
-    width: width * .6,
-    left: width / 5
   },
   buttonText: {
-    fontSize: 20,
-    paddingTop: height / 200,
+    fontSize: 19,
+    // paddingTop: height / 200,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  homeButton: {
+    // paddingTop: height / 25,
+    width: width * .4,
+    backgroundColor: '#ADC986',
+    borderRadius: 4,
+  },
+  homeButtonText: {
+    fontSize: 19,
+    paddingTop: height / 80,
     textAlign: 'center',
     fontWeight: 'bold',
     color: 'white'
   }
+
 })

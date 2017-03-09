@@ -35,13 +35,17 @@ export default class Signup extends Component {
     var userData = {
       username: context.state.username,
       password: context.state.password,
-      firstName: context.props.firstName,
-      lastName: context.props.lastName
+      // firstName: context.props.firstName,
+      // lastName: context.props.lastName
     }
-    var url = 'http://10.7.24.223:8080/auth/signup'
+    var url = 'http:10.7.24.223:8080/auth/signup'
 
+    console.log('about to post-----------------')
+    console.log(userData);
     axios.post(url, userData)
     .then(function(response) {
+       console.log('got response ----------')
+       console.log(response.data)
        var token = response.data.token
        AsyncStorage.setItem('@teachersPetToken', token, (err, data) => {
         if (err) {
@@ -60,7 +64,8 @@ export default class Signup extends Component {
       })
     })
     .catch(function(error) {
-      console.log('CATCH CALLED')
+      console.log('CATCH CALLED ===========================')
+      console.log(error);
       context.setState({
         errorText: 'Sorry, the username you are looking for is already taken.'
       })
