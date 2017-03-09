@@ -21,7 +21,6 @@ export default class SuccessfulKeyPost extends Component {
 
   handleHomePress() {
     var user = this.props.user;
-    console.log(user);
     Actions.Courses(user);
   }
 
@@ -31,22 +30,18 @@ export default class SuccessfulKeyPost extends Component {
     var user = props.user; 
     var course = props.course;  // yes -- course.className
     var keyName = props.keyName; // yes
-    var isKey = props.isKey;
-    var key = props.keyData;
+    var isKey = false;
+    var keyId = props.keyData.id;
 
-    // for (key in props) {
-    //   console.log(key);
-    // }
+    var propData = {
+      user:user,
+      course:course,
+      keyName:keyName,
+      isKey:isKey,
+      keyId:keyId,
+    }
 
-    var answers = JSON.parse(key.answers);
-    console.log(answers[4])
-
-    // console.log(isKey)
-
-    // console.log(props.name)
-
-    // var keyId = this.props.answerKeyId;
-    // Actions.CameraView({keyId: keyId})
+    Actions.CameraView(propData)
   }
 
   render() {
@@ -72,7 +67,7 @@ export default class SuccessfulKeyPost extends Component {
           <TouchableOpacity
             style={styles.homeButton}
             onPress={this.handleHomePress.bind(this)}
-            accessibilityLabel="Navigate to Home">
+            accessibilityLabel="Navigate to Courses">
             <Text style={styles.homeButtonText}>Home</Text>
           </TouchableOpacity>
           <View style={styles.buttonSpace} />
@@ -80,7 +75,7 @@ export default class SuccessfulKeyPost extends Component {
             style={styles.button}
             onPress={this.handleButtonPress.bind(this)}
             accessibilityLabel="Grade Another">
-            <Text style={styles.buttonText}>Upload Student Tests</Text>
+            <Text style={styles.buttonText}>Upload Tests for {keyName}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.thinSpace} />
@@ -155,7 +150,7 @@ const styles = StyleSheet.create({
   },
   button: {
     // paddingTop: height / 25,
-    width: width * .4,
+    width: width * .5,
     backgroundColor: '#85AF4B',
     borderRadius: 4,
   },
@@ -168,7 +163,7 @@ const styles = StyleSheet.create({
   },
   homeButton: {
     // paddingTop: height / 25,
-    width: width * .4,
+    width: width * .3,
     backgroundColor: '#ADC986',
     borderRadius: 4,
   },
