@@ -38,10 +38,14 @@ export default class Preview extends Component {
     var cloudinaryResponse = JSON.parse(context.props.cloudinaryResponse);
     var cloudURL = cloudinaryResponse.url;
 
+    console.log('USE IMAGE CALLED =======================')
+    // console.log(this.props.isKey)
+
     if (this.props.isKey) {
       console.log('KEY ========================')
       this.postAnswerKey(cloudURL);
     } else {
+      console.log('Not Key')
       this.postStudentTest(cloudURL);
     }
   }
@@ -53,7 +57,7 @@ export default class Preview extends Component {
       minorMessage: 'Hey Teacher! You\'re the best...'
     })
     var context = this;
-    console.log('posting to server ------------------------')
+    console.log('posting Answer Key to server ------------------------')
     // Fetch Web Token Asyc
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
 
@@ -75,17 +79,24 @@ export default class Preview extends Component {
       var config = {
         method: 'post',
         data: data,
-        url: 'http://10.6.20.164:8080/api/addAnswerKey'
+        url: 'http://10.7.24.223:8080/api/addAnswerKey'
       }
 
       axios(config)
         .then((response) => {
           console.log('posted successfully --------------------⁄')
-          var data = response.data;
+          var keyData = response.data;
           this.setState({
             spinner: false,
           })
-          // Actions.SuccessfulPost(data);
+          var propData = {
+            user: context.props.user,
+            course: context.props.course,
+            keyName: context.props.keyName,
+            isKey: context.props.isKey,
+            keyData: keyData
+          }
+          Actions.SuccessfulKeyPost(propData);
 
         })
         .catch((err) => {
@@ -93,14 +104,11 @@ export default class Preview extends Component {
           this.setState({
             spinner: false,
           })
-
+          // ERROR HANDLING
           // Actions.FailedToPost(data);
         })
     });
   }
-
-
-
 
 
 
@@ -111,7 +119,7 @@ export default class Preview extends Component {
       minorMessage: 'Kick your feet up, relax...'
     })
     var context = this;
-    console.log('posting to server ------------------------')
+    console.log('posting Student Test to server ------------------------')
     // Fetch Web Token Asyc
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
 

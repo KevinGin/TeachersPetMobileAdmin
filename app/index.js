@@ -9,6 +9,7 @@ import Signup from './Signup';
 import Login from './Login';
 import PreCamera from './PreCamera';
 import SuccessfulPost from './SuccessfulPost';
+import SuccessfulKeyPost from './SuccessfulKeyPost';
 import FailedToPost from './FailedToPost';
 import Courses from './Courses';
 import Keys from './Keys';
@@ -31,6 +32,7 @@ export default class App extends Component {
           <Scene key="Login" component={Login} title="Login"  />
           <Scene key="PreCamera" component={PreCamera} title="PreCamera" />
           <Scene key="SuccessfulPost" component={SuccessfulPost} title="SuccessfulPost" hideNavBar/>
+          <Scene key="SuccessfulKeyPost" component={SuccessfulKeyPost} title="SuccessfulKeyPost" hideNavBar/>
           <Scene key="FailedToPost" component={FailedToPost} title="FailedToPost" hideNavBar/>
           <Scene key="Preview" component={Preview} title="Preview" hideNavBar/>
           <Scene key="Courses" component={Courses} title="Courses" hideNavBar  />

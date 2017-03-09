@@ -19,26 +19,28 @@ export default class Courses extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      courses: [1,2,3,4,5,6]
+      courses: []
     }
   }
 
   componentDidMount() {
     this.getCourses();
-    console.log('Courses Mounted, props ==>')
+    console.log('Courses Mounted, props =======================>')
     for (key in this.props) {
       console.log(key);
     } 
   }
 
   getCourses() {
+    console.log('getCoursesCalled')
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
       var config = {
         method: 'get',
-        url: 'http://10.6.20.164:8080/api/getClasses?token=' + token
+        url: 'http://10.7.24.223:8080/api/getClasses?token=' + token
       }
       axios(config)
         .then((data) => {
+          console.log('getCourses success')
           // console.log(data.request._response);
           var courses = JSON.parse(data.request._response)
           this.setState({
