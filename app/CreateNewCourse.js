@@ -23,6 +23,7 @@ export default class CreateNewCourse extends Component {
 
   handleSubmit() {
     var context = this;
+    console.log('handlesubmit called')
    
     AsyncStorage.getItem('@teachersPetToken', (err, token) => {
       var data = {
@@ -34,7 +35,7 @@ export default class CreateNewCourse extends Component {
      var config = {
         method: 'post',
         data: data,
-        url: 'http://10.7.24.223:8080/api/addClass'
+        url: 'http://computer-vision.herokuapp.com/api/addClass'
       }
 
       axios(config)
@@ -71,7 +72,7 @@ export default class CreateNewCourse extends Component {
         <TouchableOpacity
           style={styles.loginButton}
           onPress={this.handleSubmit.bind(this)}
-          accessibilityLabel="Create Account">
+          accessibilityLabel="Create Course">
           <Text style={styles.loginText}>Create Course</Text>
         </TouchableOpacity>
         <View style={styles.space}/>

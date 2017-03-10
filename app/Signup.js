@@ -54,7 +54,7 @@ export default class Signup extends Component {
           })
         } else {
           // Navigate to Precamera
-          Actions.PreCamera(response.data)
+          Actions.Courses(response.data)
           // remove errorText, if it exists, in case user navigates back
           context.setState({
             errorText: '',
